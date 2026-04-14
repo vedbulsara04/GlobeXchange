@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="GlobeXchange — Convert currencies instantly with live exchange rates. Free, fast, and reliable." />
+  <title>GlobeXchange by Ved Bulsara</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Splash Screen -->
+  <div id="splash-screen" class="splash-screen">
+    <div class="splash-content">
+      <h1 class="logo">
+        <span class="logo-icon">🌐</span>
+        Globe<span class="highlight">Xchange</span>
+      </h1>
+      <p class="tagline">Built by Ved Bulsara</p>
+      <div class="splash-spinner-container">
+        <div class="splash-spinner"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">
+        <span class="logo-icon">🌐</span>
+        Globe<span class="highlight">Xchange</span>
+      </h1>
+      <p class="tagline">Connecting currencies across the globe</p>
+    </header>
+
+    <!-- Popular Conversions -->
+    <div class="popular-rates">
+      <div class="popular-rates-title">Popular Conversions</div>
+      <div id="rates-tags" class="rates-tags"></div>
+    </div>
+
+    <!-- Converter Card -->
+    <main class="glass-card" id="converter-card">
+      <!-- Amount Input -->
+      <div class="amount-group">
+        <label class="field-label" for="amount">Amount</label>
+        <input type="number" id="amount" class="amount-input" placeholder="Enter amount" min="0" step="any"
+          autocomplete="off" />
+      </div>
+
+      <!-- Currency Selection -->
+      <div class="currency-row">
+        <div class="currency-select-wrapper">
+          <label class="field-label" for="from-currency">From</label>
+          <select id="from-currency" class="currency-select">
+            <option>Loading...</option>
+          </select>
+        </div>
+
+        <button id="swap-btn" class="swap-btn" title="Swap currencies" aria-label="Swap currencies">
+          ⇄
+        </button>
+
+        <div class="currency-select-wrapper">
+          <label class="field-label" for="to-currency">To</label>
+          <select id="to-currency" class="currency-select">
+            <option>Loading...</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Convert Button -->
+      <button id="convert-btn" class="convert-btn">Convert</button>
+
+      <!-- Error Message -->
+      <div id="error-message" class="error-message"></div>
+    </main>
+
+    <!-- Result -->
+    <div id="result-area" class="result-area">
+      <div class="glass-card">
+        <span class="result-label">Converted</span>
+        <div id="result-main" class="result-main"></div>
+        <div id="result-detail" class="result-detail"></div>
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <div id="chart-section" class="chart-section">
+      <div class="chart-card">
+        <div class="chart-header">
+          <span class="chart-title" id="chart-title">Exchange Rate History</span>
+          <div class="chart-range-btns" id="chart-range-btns">
+            <button class="range-btn" data-range="1D">1D</button>
+            <button class="range-btn" data-range="1W">1W</button>
+            <button class="range-btn active" data-range="1M">1M</button>
+            <button class="range-btn" data-range="1Y">1Y</button>
+            <button class="range-btn" data-range="5Y">5Y</button>
+          </div>
+        </div>
+        <div id="chart-loading" class="chart-loading" style="display:none;">
+          <span class="spinner"></span> Loading chart...
+        </div>
+        <div class="chart-container" id="chart-container">
+          <canvas id="rate-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      Built by <a href="https://github.com/vedbulsara04" target="_blank" rel="noopener noreferrer">Ved Bulsara</a> <span
+        class="footer-emoji">🧑‍💻</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
